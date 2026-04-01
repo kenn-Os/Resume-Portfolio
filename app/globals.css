@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    background-color: #F8FAFC;
+    color: #0F172A;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background-color: #F8FAFC;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F1F5F9;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 99px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-panel rounded-xl border border-border shadow-panel;
+  }
+
+  .panel:hover {
+    @apply shadow-panel-hover;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .status-dot {
+    @apply inline-block w-2 h-2 rounded-full bg-success;
+    animation: pulse-dot 2.5s ease-in-out infinite;
+  }
+
+  .tag {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-[#F1F5F9] text-[#475569] border border-border;
+  }
+
+  .tag-accent {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-accent-light text-accent border border-[#BAE6FD];
+  }
+
+  .tag-success {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-success-light text-[#16A34A] border border-[#BBF7D0];
+  }
+
+  .nav-item {
+    @apply flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium text-muted cursor-pointer transition-all duration-150;
+  }
+
+  .nav-item:hover {
+    @apply bg-[#F1F5F9] text-primary;
+  }
+
+  .nav-item.active {
+    @apply bg-accent-light text-accent;
+  }
+
+  .metric-card {
+    @apply bg-panel rounded-xl border border-border p-4 flex flex-col gap-1;
+  }
+
+  .section-label {
+    @apply text-[10px] font-semibold tracking-[0.1em] uppercase text-muted;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #F1F5F9 25%, #E2E8F0 50%, #F1F5F9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}

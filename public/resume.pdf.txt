@@ -1,0 +1,2 @@
+PLACEHOLDER: Replace this file with your actual resume PDF named "resume.pdf"
+Place it in the /public directory.
