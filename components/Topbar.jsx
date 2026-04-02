@@ -7,6 +7,7 @@ const tabs = [
   { id: 'overview', label: 'Overview' },
   { id: 'services', label: 'Services' },
   { id: 'experience', label: 'Experience' },
+  { id: 'tools', label: 'Tools' },
   { id: 'workflow', label: 'Workflow' },
   { id: 'contact', label: 'Contact' },
 ]
