@@ -1,16 +1,16 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import Sidebar from '../components/Sidebar'
-import Topbar from '../components/Topbar'
-import OverviewPanel from '../components/OverviewPanel'
-import ServicesPanel from '../components/ServicesPanel'
-import ExperienceTimeline from '../components/ExperienceTimeline'
-import ToolsPanel from '../components/ToolsPanel'
-import WorkflowPanel from '../components/WorkflowPanel'
-import ContactPanel from '../components/ContactPanel'
-import ResumePanel from '../components/ResumePanel'
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import Sidebar from "../components/Sidebar";
+import Topbar from "../components/Topbar";
+import OverviewPanel from "../components/OverviewPanel";
+import ServicesPanel from "../components/ServicesPanel";
+import ExperienceTimeline from "../components/ExperienceTimeline";
+import ToolsPanel from "../components/ToolsPanel";
+import WorkflowPanel from "../components/WorkflowPanel";
+import ContactPanel from "../components/ContactPanel";
+import ResumePanel from "../components/ResumePanel";
 
 const sections = {
   overview: OverviewPanel,
@@ -20,23 +20,23 @@ const sections = {
   workflow: WorkflowPanel,
   contact: ContactPanel,
   resume: ResumePanel,
-}
+};
 
 const pageVariants = {
   initial: { opacity: 0, y: 8 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeOut' } },
-  exit: { opacity: 0, y: -4, transition: { duration: 0.15, ease: 'easeIn' } },
-}
+  animate: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
+  exit: { opacity: 0, y: -4, transition: { duration: 0.15, ease: "easeIn" } },
+};
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('overview')
+  const [activeSection, setActiveSection] = useState("overview");
 
   const handleNavigate = (section) => {
-    setActiveSection(section)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+    setActiveSection(section);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-  const ActiveComponent = sections[activeSection] || OverviewPanel
+  const ActiveComponent = sections[activeSection] || OverviewPanel;
 
   return (
     <div className="flex min-h-screen bg-bg">
@@ -54,7 +54,9 @@ export default function Home() {
           <div className="flex items-center gap-2 mb-4 text-[11px] text-muted">
             <span>Dashboard</span>
             <span>/</span>
-            <span className="text-primary font-medium capitalize">{activeSection}</span>
+            <span className="text-primary font-medium capitalize">
+              {activeSection}
+            </span>
           </div>
 
           {/* Animated section switcher */}
@@ -78,14 +80,14 @@ export default function Home() {
           </p>
           <div className="flex items-center gap-3 text-[11px] text-muted">
             <button
-              onClick={() => handleNavigate('contact')}
+              onClick={() => handleNavigate("contact")}
               className="hover:text-accent transition-colors"
             >
               Contact
             </button>
             <span className="text-border">·</span>
             <button
-              onClick={() => handleNavigate('resume')}
+              onClick={() => handleNavigate("resume")}
               className="hover:text-accent transition-colors"
             >
               Download CV
@@ -94,5 +96,5 @@ export default function Home() {
         </footer>
       </div>
     </div>
-  )
+  );
 }
